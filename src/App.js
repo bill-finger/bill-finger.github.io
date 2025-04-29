@@ -1,41 +1,42 @@
-import React, { useState } from 'react';
-import DataMatrix from 'react-datamatrix-svg';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import React, { useState } from "react";
+import DataMatrix from "react-datamatrix-svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
-  const [modelNumber, setModelNumber] = useState('');
-  const [serialNumber, setSerialNumber] = useState('');
-  const [msg, setMsg] = useState('');
+  const [modelNumber, setModelNumber] = useState("");
+  const [serialNumber, setSerialNumber] = useState("");
+  const [msg, setMsg] = useState("");
 
   const handleSubmit = () => {
     setMsg(`${modelNumber}$${serialNumber}`);
   };
 
   const handleDropdownChange = (e) => {
-    if (e.target.value === '3seriesW2A-A2L') {
-      setMsg('W3AV036BD1A01CTL1A10$123456789');
-    }
-    else if (e.target.value === '5seriesW2A-A2L') {
-      setMsg('W5AV036BD1A02CTL2D10$123456789')
-    }
-    else if (e.target.value === '7seriesW2A-A2L') {
-      setMsg('W7AV024BV1A02CTL2D10$123456789')
-    }
-    else if (e.target.value === '5series3D') {
-      setMsg('W5TV036BD1A22CTL2D11$123456789')
+    if (e.target.value === "3seriesW2A-A2L") {
+      setMsg("W3AV036BD1A01CTL1A10$123456789");
+    } else if (e.target.value === "5seriesW2A-A2L") {
+      setMsg("W5AV036BD1A02CTL2D10$123456789");
+    } else if (e.target.value === "7seriesW2A-A2L") {
+      setMsg("W7AV024BV1A02CTL2D10$123456789");
+    } else if (e.target.value === "5series3D") {
+      setMsg("W5TV036BD1A22CTL2D11$123456789");
+    } else if (e.target.value === "5SeriesNEW") {
+      setMsg("NEW050A10RCSS0DA$123456789");
+    } else if (e.target.value === "5SeriesNEW-A2L") {
+      setMsg("W5WZ060BE1A0RCFFFD10$123456789");
     }
   };
 
   const handleReset = () => {
-    setModelNumber('');
-    setSerialNumber('');
-    setMsg('');
-    document.querySelector('select').value = '';
+    setModelNumber("");
+    setSerialNumber("");
+    setMsg("");
+    document.querySelector("select").value = "";
   };
 
-  return (    
-    <div className="container mt-4">      
+  return (
+    <div className="container mt-4">
       <h1 className="mb-4">SCC DataMatrix Generator</h1>
       <div className="mb-3">
         <label className="form-label">Select Option:</label>
@@ -44,6 +45,8 @@ function App() {
           <option value="3seriesW2A-A2L">3 Series Water to Air (A2L)</option>
           <option value="5seriesW2A-A2L">5 Series Water to Air (A2L)</option>
           <option value="7seriesW2A-A2L">7 Series Water to Air (A2L)</option>
+          <option value="5SeriesNEW">5 Series NEW w/ OptiHeat (R-410A)</option>
+          <option value="5SeriesNEW-A2L">5 Series NEW w/ OptiHeat (A2L)</option>
           <option value="5series3D">5 Series 3D</option>
         </select>
       </div>
@@ -64,7 +67,7 @@ function App() {
           value={serialNumber}
           onChange={(e) => setSerialNumber(e.target.value)}
         />
-      </div> 
+      </div>
       <div className="d-flex gap-3">
         <button className="btn btn-primary" onClick={handleSubmit}>
           Generate DataMatrix
