@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Distribution
+dist
+build
+
+# Caches and temporary files
+.npm
+.eslintcache
+.parcel-cache
+.cache
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor and IDE files
+.idea
+.vscode
+*.swp
+*.swo
+*.iml
+
+# TypeScript output
+typings
